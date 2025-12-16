@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Number Guessing Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1><i class="fas fa-brain"></i> Number Guesser Pro</h1>
+            <div class="difficulty-selector">
+                <span>Difficulty:</span>
+                <select id="difficulty">
+                    <option value="easy">Easy (15 attempts)</option>
+                    <option value="medium" selected>Medium (10 attempts)</option>
+                    <option value="hard">Hard (7 attempts)</option>
+                    <option value="expert">Expert (5 attempts)</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="game-content">
+            <div class="stats-bar">
+                <div class="stat">
+                    <span class="stat-label">Attempts</span>
+                    <span class="stat-value" id="attemptsCount">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Remaining</span>
+                    <span class="stat-value" id="remainingAttempts">10</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Best Score</span>
+                    <span class="stat-value" id="bestScore">0</span>
+                </div>
+            </div>
+
+            <div class="range-display">
+                <p>Guess a number between</p>
+                <div class="range-numbers">
+                    <span class="range-min" id="rangeMin">1</span>
+                    <i class="fas fa-arrows-alt-h"></i>
+                    <span class="range-max" id="rangeMax">100</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <div class="input-section">
+                <div class="input-group">
+                    <input type="number" id="guessInput" placeholder="Enter your guess" min="1" max="100">
+                    <button class="guess-btn" id="guessButton">
+                        <i class="fas fa-bullseye"></i> Guess
+                    </button>
+                </div>
+                <div class="quick-buttons">
+                    <button class="quick-btn" data-value="25">25</button>
+                    <button class="quick-btn" data-value="50">50</button>
+                    <button class="quick-btn" data-value="75">75</button>
+                </div>
+            </div>
+
+            <div class="message-container">
+                <div class="message-box" id="messageBox">
+                    <i class="fas fa-lightbulb"></i>
+                    <span id="message">I'm thinking of a number between 1-100. Can you guess it?</span>
+                </div>
+            </div>
+
+            <div class="history-section">
+                <h3><i class="fas fa-history"></i> Guess History</h3>
+                <div class="history-list" id="historyList">
+                    <div class="empty-history">No guesses yet</div>
+                </div>
+            </div>
+
+            <div class="hint-section">
+                <button class="hint-btn" id="hintButton">
+                    <i class="fas fa-lightbulb"></i> Get Hint (3 left)
+                </button>
+                <div class="hint-content" id="hintContent"></div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn reset-btn" id="resetButton">
+                    <i class="fas fa-redo"></i> New Game
+                </button>
+                <button class="action-btn theme-btn" id="themeButton">
+                    <i class="fas fa-palette"></i> Theme
+                </button>
+                <button class="action-btn instructions-btn" id="instructionsButton">
+                    <i class="fas fa-question-circle"></i> Help
+                </button>
+            </div>
+        </div>
+
+        <footer class="game-footer">
+            <p>Made with <i class="fas fa-heart"></i> | Try to beat your best score!</p>
+        </footer>
+    </div>
+
+    <div class="notification" id="notification"></div>
+    
+    <!-- Instructions Modal -->
+    <div class="modal" id="instructionsModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2><i class="fas fa-gamepad"></i> How to Play</h2>
+            <div class="instructions">
+                <div class="instruction-item">
+                    <i class="fas fa-bullseye"></i>
+                    <div>
+                        <h3>Objective</h3>
+                        <p>Guess the secret number between 1 and 100</p>
+                    </div>
+                </div>
+                <div class="instruction-item">
+                    <i class="fas fa-sliders-h"></i>
+                    <div>
+                        <h3>Difficulty Levels</h3>
+                        <p>Choose from 4 difficulty levels with different attempt limits</p>
+                    </div>
+                </div>
+                <div class="instruction-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h3>Hints</h3>
+                        <p>You have 3 hints available. Use them wisely!</p>
+                    </div>
+                </div>
+                <div class="instruction-item">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <h3>Strategy</h3>
+                        <p>Use binary search method: always guess the middle of the current range</p>
+                    </div>
+                </div>
+                <div class="instruction-item">
+                    <i class="fas fa-trophy"></i>
+                    <div>
+                        <h3>Best Score</h3>
+                        <p>Your best score is saved locally. Try to beat it!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
