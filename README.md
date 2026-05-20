@@ -1,5 +1,11 @@
 # 🎯 Number Guessing Game
 
+<p align="center">
+  <a href="https://number-guessing-game-one-rose.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/🎮%20Play%20Now-Number%20Guessing%20Game-green?style=for-the-badge">
+  </a>
+</p>
+
 A simple and interactive number guessing game built using **HTML, CSS, and JavaScript**.  
 The player tries to guess a randomly generated number and receives hints until the correct number is guessed.
 
